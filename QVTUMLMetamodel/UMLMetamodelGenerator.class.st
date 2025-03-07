@@ -4,9 +4,9 @@ Class {
 	#instVars : [
 		'umlModelElement',
 		'package',
-		'attribute',
+		'attribute1',
 		'packageElement',
-		'class',
+		'class1',
 		'classifier',
 		'primitiveDataType',
 		'association'
@@ -29,8 +29,8 @@ UMLMetamodelGenerator >> defineClasses [
 	association := builder newClassNamed: #Association.
 	primitiveDataType := builder newClassNamed: #PrimitiveDataType.
 	classifier := builder newClassNamed: #Classifier.
-	class := builder newClassNamed: #Class.
-	attribute := builder newClassNamed: #Attribute.        
+	class1 := builder newClassNamed: #Class1.
+	attribute1 := builder newClassNamed: #Attribute1.        
 ]
 
 { #category : #definition }
@@ -39,12 +39,12 @@ UMLMetamodelGenerator >> defineHierarchy [
 	
 	package --|> umlModelElement .
 	packageElement --|> umlModelElement .
-	attribute --|> umlModelElement .
+	attribute1 --|> umlModelElement .
 	
 	association --|> packageElement.
 	classifier --|> packageElement .
 	
-	class --|> classifier .
+	class1 --|> classifier .
 	primitiveDataType --|> classifier .
 	
 ]
@@ -62,12 +62,12 @@ UMLMetamodelGenerator >> defineRelations [
 	super defineRelations .
 	
 	"aggregation"
-	class <>-* attribute .
+	class1 <>-* attribute1 .
 	package <>-* packageElement .
 
 	"references"
-	class -* association.
-	association *- class.
-	class *-* class.
+	class1 -* association.
+	association *- class1.
+	class1 *-* class1.
 	
 ]
